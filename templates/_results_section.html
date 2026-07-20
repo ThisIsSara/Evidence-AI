@@ -1,0 +1,96 @@
+<!-- _results_section.html
+     Shared "Investigation Report" block: reused by case_detail.html (demo case)
+     and new_investigation.html (custom case). Starts hidden; filled in by
+     investigation_ui.js after the backend responds, then unhidden. -->
+<section id="investigation-results" class="max-w-5xl mx-auto px-6 py-8 hidden">
+
+    <!-- Shown only when printing, since the on-screen nav (with the "Evidence AI"
+         brand) is hidden while printing. -->
+    <div class="print-only mb-6">
+        <h1 class="text-2xl font-bold">Evidence AI &mdash; <span data-i18n="report_heading">Investigation Report</span></h1>
+        <p>Case: <span id="print-case-title"></span></p>
+        <p>Analysis date: <span id="print-analysis-date"></span></p>
+    </div>
+
+    <div class="flex items-center justify-between mb-4">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500" data-i18n="report_heading">
+            Investigation Report
+        </h2>
+        <button id="print-report-btn" type="button" data-i18n="print_button"
+                class="no-print px-4 py-2 rounded-lg border border-slate-700 text-slate-300 hover:border-teal-500 hover:text-teal-400 text-xs font-semibold transition-colors">
+            Print / Save Report
+        </button>
+    </div>
+
+    <!-- 1. Executive Summary -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <h3 class="text-slate-100 font-semibold mb-2" data-i18n="executive_summary_heading">Executive Summary</h3>
+        <p id="result-executive-summary" class="text-sm text-slate-300 leading-relaxed"></p>
+    </div>
+
+    <!-- 2. Case Information + 9. Overall Risk Level -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="case_information_heading">Case Information</h3>
+            <div id="result-case-information" class="text-sm text-slate-300 space-y-1"></div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="risk_level_heading">Overall Risk Level</h3>
+            <p class="text-sm text-slate-300"><span id="result-risk-level" class="font-semibold text-base"></span></p>
+        </div>
+    </div>
+
+    <!-- 3. Involved Parties + 4. Verified Facts -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="involved_parties_heading">Involved Parties</h3>
+            <div id="result-involved-parties" class="text-sm text-slate-300 space-y-2"></div>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="verified_facts_heading">Verified Facts</h3>
+            <div id="result-verified-facts" class="text-sm text-slate-300 space-y-2"></div>
+        </div>
+    </div>
+
+    <!-- 5. Contextual Statements -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <h3 class="text-slate-100 font-semibold mb-3" data-i18n="contextual_statements_heading">Contextual Statements</h3>
+        <ul id="result-contextual-statements" class="text-sm space-y-3"></ul>
+    </div>
+
+    <!-- 6. Chronological Timeline -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <h3 class="text-slate-100 font-semibold mb-3" data-i18n="timeline_heading">Chronological Timeline</h3>
+        <ul id="result-timeline" class="text-sm space-y-3"></ul>
+    </div>
+
+    <!-- 7. Detected Contradictions -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <h3 class="text-slate-100 font-semibold mb-3" data-i18n="contradictions_heading">Detected Contradictions</h3>
+        <div id="result-contradictions" class="space-y-4"></div>
+    </div>
+
+    <!-- 8. Evidence Assessment -->
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6 mb-4">
+        <h3 class="text-slate-100 font-semibold mb-3" data-i18n="evidence_assessment_heading">Evidence Assessment</h3>
+        <div id="result-evidence-assessment" class="text-sm space-y-2"></div>
+    </div>
+
+    <!-- 10. Follow-up Questions + 11. Next Steps -->
+    <div class="grid sm:grid-cols-2 gap-4 mb-4">
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="follow_up_heading">Recommended Follow-up Questions</h3>
+            <ul id="result-follow-up-questions" class="text-sm text-slate-300 list-disc list-inside space-y-1"></ul>
+        </div>
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+            <h3 class="text-slate-100 font-semibold mb-3" data-i18n="next_steps_heading">Recommended Next Steps</h3>
+            <ul id="result-next-steps" class="text-sm text-slate-300 list-disc list-inside space-y-1"></ul>
+        </div>
+    </div>
+
+    <!-- 12. Human Review Disclaimer -->
+    <div class="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 text-sm text-amber-200/90">
+        <p class="font-semibold uppercase tracking-widest text-xs mb-2" data-i18n="disclaimer_heading">Human Review Disclaimer</p>
+        <p id="result-disclaimer"></p>
+    </div>
+</section>

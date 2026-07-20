@@ -1,0 +1,65 @@
+<!-- base.html
+     Shared layout for every page: loads Tailwind (via CDN, no build step),
+     our custom CSS/JS, and defines a "content" block that other pages fill in.
+     Also loads the EN/AR translation dictionary and the language toggle button,
+     since every page shares the same interface language. -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Evidence AI{% endblock %}</title>
+
+    <!-- Tailwind CSS via CDN (no build step, per approved stack) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Our small custom stylesheets (screen tweaks + print-only rules) -->
+    <link rel="stylesheet" href="/static/css/custom.css" />
+    <link rel="stylesheet" href="/static/css/print.css" media="print" />
+</head>
+<body class="bg-slate-950 text-slate-200 min-h-screen flex flex-col antialiased">
+
+    <!-- Simple top navigation bar, shared across all pages. Hidden when printing. -->
+    <header class="no-print border-b border-slate-800 bg-slate-950/80 backdrop-blur sticky top-0 z-10">
+        <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="/" class="flex items-center gap-2">
+                <span class="text-teal-400 text-xl font-bold tracking-tight">Evidence AI</span>
+            </a>
+            <div class="flex items-center gap-4">
+                <span class="hidden sm:inline text-xs text-slate-400 uppercase tracking-widest" data-i18n="nav_subtitle">
+                    Corporate Investigation Platform
+                </span>
+                <button id="lang-toggle-btn" type="button"
+                        class="px-3 py-1.5 rounded-md text-xs font-semibold border border-slate-700 text-slate-300 hover:border-teal-500 hover:text-teal-400 transition-colors">
+                    العربية
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-1">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="no-print border-t border-slate-800 mt-16">
+        <div class="max-w-6xl mx-auto px-6 py-6 text-xs text-slate-500 flex flex-col gap-1">
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-2">
+                <span>Evidence AI &mdash; Hackathon MVP</span>
+                <span data-i18n="footer_disclaimer">Assists human investigators. Does not make legal or disciplinary decisions.</span>
+            </div>
+            <div class="text-center sm:text-left text-slate-600" data-i18n="footer_data_notice">
+                Hackathon MVP &mdash; fictional or non-sensitive data only.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Shared scripts load on every page; each one checks for its own
+         elements before doing anything, so it's harmless on pages that
+         don't use it. -->
+    <script src="/static/js/i18n.js"></script>
+    <script src="/static/js/investigation_ui.js"></script>
+    <script src="/static/js/app.js"></script>
+    <script src="/static/js/new_investigation.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

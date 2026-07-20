@@ -1,0 +1,43 @@
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables (may hold secrets, e.g. an API key in a later phase)
+.env
+.env.*
+!.env.example
+
+# Local database files
+data/evidence.db
+*.db
+*.sqlite3
+
+# Uploaded user files (added in a later phase)
+data/uploads/
+
+# Log files
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.swp
+
+# Editor / IDE settings
+.vscode/
+.idea/
+
+# Claude Code local settings (may reference local machine paths/usernames)
+.claude/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+desktop.ini

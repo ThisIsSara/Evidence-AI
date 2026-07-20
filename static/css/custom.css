@@ -1,0 +1,31 @@
+/* custom.css
+   Small tweaks that are easier to express here than as Tailwind utility
+   classes. Tailwind (loaded via CDN in base.html) handles almost everything
+   else, so this file stays intentionally short. */
+
+/* Smooth, restrained transitions for the pipeline step highlighting. */
+.pipeline-step {
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.pipeline-step.active {
+    border-color: rgb(45 212 191 / 0.5); /* teal-400 at low opacity */
+    background-color: rgb(45 212 191 / 0.08);
+}
+
+.pipeline-step.active .pipeline-step-number {
+    background-color: rgb(45 212 191);
+    color: rgb(2 6 23);
+}
+
+/* Evidence cards and "View Source Evidence" (Part 6): a brief highlight so the
+   user can see which source card was scrolled to. */
+.evidence-card {
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.evidence-card.evidence-highlight,
+.evidence-block.evidence-highlight {
+    border-color: rgb(45 212 191 / 0.7);
+    background-color: rgb(45 212 191 / 0.08);
+}

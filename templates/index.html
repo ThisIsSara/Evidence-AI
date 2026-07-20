@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% block title %}Evidence AI &mdash; Corporate Investigation Platform{% endblock %}
+
+{% block content %}
+<section class="max-w-6xl mx-auto px-6 pt-16 pb-12 text-center">
+    <h1 class="text-4xl sm:text-5xl font-bold text-white tracking-tight">Evidence AI</h1>
+    <p class="mt-4 text-lg sm:text-xl text-teal-400 font-medium" data-i18n="landing_subtitle">
+        AI-powered Corporate Investigation &amp; Evidence Analysis Platform
+    </p>
+
+    <!-- Target department badges -->
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-2">
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700" data-i18n="badge_hr">HR</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700" data-i18n="badge_compliance">Compliance</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700" data-i18n="badge_audit">Internal Audit</span>
+        <span class="px-3 py-1 rounded-full text-xs font-semibold bg-slate-800 text-slate-300 border border-slate-700" data-i18n="badge_legal">Legal</span>
+    </div>
+
+    <!-- Application modes: Try Demo Investigation / Create New Investigation -->
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="/demo-case" data-i18n="try_demo_button"
+           class="w-full sm:w-auto px-6 py-3 rounded-lg bg-teal-500 hover:bg-teal-400 text-slate-950 font-semibold transition-colors">
+            Try Demo Investigation
+        </a>
+        <a href="/new-investigation" data-i18n="create_investigation_button"
+           class="w-full sm:w-auto px-6 py-3 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold border border-slate-700 transition-colors">
+            Create New Investigation
+        </a>
+    </div>
+</section>
+
+<!-- Problem / Solution -->
+<section class="max-w-5xl mx-auto px-6 py-12 grid sm:grid-cols-2 gap-8">
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-slate-500 mb-3" data-i18n="problem_heading">The Problem</h2>
+        <p class="text-slate-300 leading-relaxed" data-i18n="problem_text">
+            Internal investigations often require teams to manually cross-reference scattered statements,
+            emails, and records.
+        </p>
+    </div>
+    <div class="bg-slate-900 border border-slate-800 rounded-xl p-6">
+        <h2 class="text-sm font-semibold uppercase tracking-widest text-teal-500 mb-3" data-i18n="solution_heading">The Solution</h2>
+        <p class="text-slate-300 leading-relaxed" data-i18n="solution_text">
+            Evidence AI transforms fragmented evidence into structured facts, timelines, contradictions,
+            and investigation reports.
+        </p>
+    </div>
+</section>
+
+<!-- How the local engine works. Deliberately called "stages" of one local
+     pipeline, not "agents" - this is a rule-based engine, not a multi-agent
+     AI system (see README for the honest technical description). -->
+<section class="max-w-6xl mx-auto px-6 py-12">
+    <h2 class="text-center text-sm font-semibold uppercase tracking-widest text-slate-500 mb-8" data-i18n="engine_section_heading">
+        How the Local Investigation Engine Works
+    </h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        {% for stage_number in range(1, 5) %}
+        <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+            <div class="w-8 h-8 rounded-md bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-400 font-bold text-sm mb-3">
+                {{ stage_number }}
+            </div>
+            <h3 class="text-slate-100 font-semibold mb-2" data-i18n="engine_stage_{{ stage_number }}_name"></h3>
+            <p class="text-sm text-slate-400 leading-relaxed" data-i18n="engine_stage_{{ stage_number }}_desc"></p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- Ethical disclaimer -->
+<section class="max-w-5xl mx-auto px-6 py-8">
+    <div class="bg-amber-500/5 border border-amber-500/20 rounded-xl p-5 text-sm text-amber-200/90 flex items-start gap-3">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 flex-shrink-0 mt-0.5 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m0 3.75h.008M10.29 3.86l-8.18 14.16A1.5 1.5 0 003.5 20.5h17a1.5 1.5 0 001.39-2.48L13.71 3.86a1.5 1.5 0 00-2.42 0z" />
+        </svg>
+        <p data-i18n="ethical_disclaimer">
+            Evidence AI assists human investigators and does not make legal or disciplinary decisions.
+        </p>
+    </div>
+</section>
+{% endblock %}

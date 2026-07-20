@@ -1,0 +1,38 @@
+/* print.css
+   Rules that only apply when printing (or using the browser's "Save as PDF").
+   No PDF library is used - this is plain browser printing via window.print(). */
+
+/* Hidden on screen; shown only in print, since the on-screen nav (which
+   carries the "Evidence AI" branding) is hidden while printing. */
+.print-only {
+    display: none;
+}
+
+@media print {
+    /* Navigation, forms, buttons, and the animated pipeline are all
+       "controls", not report content - hide anything marked .no-print. */
+    .no-print {
+        display: none !important;
+    }
+
+    .print-only {
+        display: block !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    a {
+        color: black !important;
+        text-decoration: none !important;
+    }
+
+    /* Report cards look better on paper without dark backgrounds/borders. */
+    #investigation-results * {
+        background: white !important;
+        color: black !important;
+        border-color: #999 !important;
+    }
+}

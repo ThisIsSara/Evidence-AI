@@ -1,0 +1,28 @@
+{
+  "_notice": "DEMONSTRATION DATA ONLY. All names, companies, and events below are fictional and were created solely to showcase the Evidence AI interface.",
+  "case_id": "CASE-2026-104",
+  "title": "Suspected Procurement Policy Violation",
+  "case_type": "Procurement Compliance",
+  "status": "Ready for Investigation",
+  "description": "An internal investigation involving conflicting employee statements, an unusual vendor invoice, and a disputed meeting timeline.",
+  "documents": [
+    {
+      "id": "DOC-1",
+      "name": "Employee Statement - J. Whitmore",
+      "type": "Employee Statement",
+      "content": "I, Jordan Whitmore, confirm that to my knowledge no meeting with the vendor Halcyon Supply Co. took place on March 12, 2026. I was in the office for most of the day and do not recall any vendor visit or scheduled discussion on that date."
+    },
+    {
+      "id": "DOC-2",
+      "name": "Email Thread - Meeting Confirmation",
+      "type": "Email",
+      "content": "From: r.delgado@halcyonsupply-demo.com\nTo: j.whitmore@fictionalcorp-demo.com\nDate: March 12, 2026\nSubject: Confirming today's meeting\n\nHi Jordan, just confirming our meeting today at 2:00 PM to discuss the updated supply contract terms. See you then.\n\n- Renee Delgado, Halcyon Supply Co. (fictional demo company)"
+    },
+    {
+      "id": "DOC-3",
+      "name": "Building Visitor Log",
+      "type": "Visitor Log",
+      "content": "Visitor Log Entry\nVisitor: Renee Delgado\nCompany: Halcyon Supply Co.\nHost: Jordan Whitmore\nDate: March 12, 2026\nCheck-in: 1:52 PM\nCheck-out: 3:10 PM"
+    }
+  ]
+}
