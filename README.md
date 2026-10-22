@@ -243,16 +243,6 @@ model, and the interface avoids implying otherwise (e.g. the pipeline panel is l
    ```
 5. Health check (useful for deployment platforms): `GET /health` → `{"status": "ok"}`
 
-## Screenshots
-
-_placeholder: landing page_
-
-_placeholder: demo case investigation report_
-
-_placeholder: custom investigation form_
-
-_placeholder: Arabic interface_
-
 ## Hackathon Context
 
 Built end-to-end (architecture, backend, rule-based engine, bilingual frontend) within
